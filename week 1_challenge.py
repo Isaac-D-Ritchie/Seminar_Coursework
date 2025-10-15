@@ -1,13 +1,19 @@
-#here I am asking for the user to input three different string variables, then storing it as a string variable.
-print ("enter your name:")
-name = input()
 
-print ("what is your username?")
-username = input()
+#Here is where i ask for inputs which will we placed into a askii style display
+name = input("What is your name... ")
+username = input("Enter a user name... ")
+location = input("Enter a location... ")
 
-print ("what is your location?")
-location = input()
+#here i am creating a variable that holds a list of the infomation the user just entered
+BoxLines = (f"Name: {name}", f"Username: {username}", f"Location: {location}")
 
-print ("+====================+")
-print ("|                    |")
-print ("| name = " + name + "  |")
+#This determines the maximum length by temirearily assigning each item on the list in the BoxLines variable and checks for the maximum lenngth to save it as Line max length
+#I later add 3 to create a buffer between the longest line in the box and its border
+LineMaxLength = 3 + (max(len(num) for num in BoxLines))
+
+#here i print the edges of the box "* +" and the "-" as many times as the variable LineMaxLength to create the top of the box
+print ("*" + "-" * LineMaxLength + "+")
+#next i used a for loop to print 
+for num in BoxLines:
+    print (f"| {num.ljust(LineMaxLength)}  |")
+print ("+" + "-" * LineMaxLength + "*")
