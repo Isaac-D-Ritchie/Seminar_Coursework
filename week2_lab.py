@@ -1,7 +1,6 @@
 """
 this pregram covers all the tasks set for week 2 lab seminar sessions
 """
-
 #this asks the user to input the temperature in Celsius and stores it as a float variable since it could be a decimal value
 print ("please enter the tempreture in Celsius: to convert it to Fahrenheit")
 DegreesC = float(input())
@@ -12,14 +11,10 @@ DegreesF = (DegreesC * 9/5) + 32
 #this print statement prints both variables in a 'simplified' f-string format
 print (f"The temperature in celsius is {DegreesC}°C and in Fahrenheit it is {DegreesF}°F")
 
-""""
-here is the DegreesC is converted it takes the original value and converts it to Fahrenheit using the formula given. As degreesC is a float variable it can take decimal values and the result of the conversion will also be a float value. goes up so does DegreesF
-"""
 
 """
 This further program utilises each different data type and their functions
 """
-
 int1 = 10
 str1 = "hello"
 float1 = 5.587
@@ -42,6 +37,7 @@ print (type(int1), "I have converted the integer variable to a float and display
 #python can do this while other languages such as java cannot. This is beause python is a dynamic language meaning it calculates variables as it is compiled rather than when it is written like in java.
 print ('')
 
+
 """
 string formatting
 """
@@ -62,3 +58,28 @@ print ("`._______________________________________________,___.") #this is not sp
 askiiline2 = "\_-----------------------------------------\_-||--'"
 print (f"{askiiline2:>53}") #this prints the second line with a 53 space seperation from the start of the text to the end of it creating a 2 sapce gap at the beginning since its 51 charcters long
 print ('') #this prints a blank line
+
+"""
+In this next piece of code i will be creating a elif to detemine which age group a erson falls into while concidering any unexpected inputs
+"""
+#to only allow for a integer input i used a while true statement which creates a infinate loop that can only be broken with a 'break' command
+while True:
+    GetInteger = input("How old are you?")
+    #I have used the try and except command to exclude any error values the user could input
+    try:
+        age = int(GetInteger)
+        #I ahve used an if. elif, and else statement nested within the try command to determine which age bracket the person is in and print an output.
+        if age in range(18, 126):
+            print ("you're an Adult")
+            break
+        elif age in range(13, 18):
+            print("You're a Teenager")
+            break
+        elif age in range(1, 13):
+            print("You're a Child")
+            break
+        else:
+            print ("I dont believe you, Try again. ")
+    #This is what detects any unexpedted inputs from the user and redirects them to retry and input something else
+    except ValueError:
+        print ("Thats not right, Try again. ")
