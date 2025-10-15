@@ -9,11 +9,11 @@ BoxLines = (f"Name: {name}", f"Username: {username}", f"Location: {location}")
 
 #This determines the maximum length by temirearily assigning each item on the list in the BoxLines variable and checks for the maximum lenngth to save it as Line max length
 #I later add 3 to create a buffer between the longest line in the box and its border
-LineMaxLength = 3 + (max(len(num) for num in BoxLines))
+LineMaxLength = 3 + (max(len(BoxLines))
 
 #here i print the edges of the box "* +" and the "-" as many times as the variable LineMaxLength to create the top of the box
 print ("*" + "-" * LineMaxLength + "+")
 #next i used a for loop to print 
-for num in BoxLines:
-    print (f"| {num.ljust(LineMaxLength)}  |")
+for BoxLines:
+    print (f"| {BoxLines.ljust(LineMaxLength)}  |")
 print ("+" + "-" * LineMaxLength + "*")
