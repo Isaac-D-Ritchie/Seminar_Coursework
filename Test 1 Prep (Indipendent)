@@ -21,6 +21,17 @@
 #I will then use a for loop to output numbers 1 up until the user input.
 #Fiinally i will create a function that takes two inputs and output their connected strings and input the previously created integer and float input
 
+
 user_input =input("please input a integer: ")
 user_integer = int(user_input)
 user_float = float(user_input)
+
+if (user_integer % 3 == 0) and (user_integer % 5 == 0):
+    print("Fizzbuzz")
+elif (user_integer % 5 == 0):
+    print("Buzz")
+elif (user_integer % 3 == 0):
+    print("Fizz" and "Buzz")
+else:
+    print("Not divisiable by 3 or 5")
+
