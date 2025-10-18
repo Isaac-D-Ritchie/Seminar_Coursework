@@ -21,11 +21,12 @@
 #I will then use a for loop to output numbers 1 up until the user input.
 #Fiinally i will create a function that takes two inputs and output their connected strings and input the previously created integer and float input
 
-
+#This asked for a inger input and converts it into two varaiables, one a int, and the other a float.
 user_input =input("please input a integer: ")
 user_integer = int(user_input)
 user_float = float(user_input)
 
+#These if/elif/else statements checks if the intger is devisible by 3 or 5 and outputs differently dependiing on which if/elif/esle it matches.
 if (user_integer % 3 == 0) and (user_integer % 5 == 0):
     print("Fizzbuzz")
 elif (user_integer % 5 == 0):
@@ -35,10 +36,13 @@ elif (user_integer % 3 == 0):
 else:
     print("Not divisiable by 3 or 5")
 
+#This prinnts a counter from 1 to (and including) the input number.
 for input_counter in range(1, user_integer + 1):
     print(input_counter)
 
+#This created a function to add two different variables
 def add_function(input1, input2):
     print((input1) + (input2))
 
+#This print calls on the function and adds the two original int and float variables, then outputting the answer
 print (add_function(user_integer, user_float))
