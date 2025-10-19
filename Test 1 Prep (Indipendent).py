@@ -1,3 +1,4 @@
+
 #Practacing the funimentals of Python
 
 # *For the porposes of this exam prep i have generated a question from chatgpt.com to cover the parameters of the topics taught in weeks 1 - 3.*
