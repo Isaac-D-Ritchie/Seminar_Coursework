@@ -20,8 +20,26 @@
 #I will output if they are in their 30s and then a countdown beginning at their age down to 1.
 
 #here i am asking the user to input their name and age then save them and covert their age to a int and a float.
-name = print (input("What if your name? "))
-age = print (input("What is your name? "))
+name = input("What if your name? ")
+age = input("What is your age? ")
 
 age_integr = int(age)
 aga_float = float(age)
+
+#here i am using + to connect strings in a printed sentence
+print ("Hello, " + name + " Your age is, " + age)
+
+#This code prints if their age is odd o even
+odd_number_checker = age_integr % 2
+if odd_number_checker == 0:
+    print("Your age is an even number")
+else:
+     print("Your age is an odd number")
+if (age_integr >= 18):
+     print("you are a Adult")
+elif (age_integr >= 13): 
+     print("You are a Teenager")
+else:
+     print("You are a child")
+
+
