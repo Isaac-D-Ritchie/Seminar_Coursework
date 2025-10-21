@@ -35,11 +35,20 @@ if odd_number_checker == 0:
     print("Your age is an even number")
 else:
      print("Your age is an odd number")
-if (age_integr >= 18):
+
+#This code prints what age bracket they are in
+if (age_integr >= 20):
      print("you are a Adult")
 elif (age_integr >= 13): 
      print("You are a Teenager")
 else:
      print("You are a child")
+
+
+if age_integr >= 30 and age_integr <= 39:
+     print("You are in your 30s")
+     
+     
+
 
 
