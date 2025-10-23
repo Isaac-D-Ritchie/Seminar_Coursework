@@ -5,34 +5,43 @@ focusing on for loops, while loops, and GitHub intergration.
 
 #Task 1 + 2
 #This prints only the even numbers between 0 and 20
-#for i in range(0, 20, 2):
-#   print(f"\n {i + 1}")
+for i in range(0, 20, 2):
+   print(f"\n {i + 1}")
+
+#This seperates the outputs
+print()
 
 #Task 3
 #This code takes a list of costs and adds then displaying the cost as it adds and the total cost.
-#costs= [15.00, 12.50, 3.75, 40.25]
-#total_cost = 0
+costs= [15.00, 12.50, 3.75, 40.25]
+total_cost = 0
 
-#for cost in costs:
-#    total_cost = total_cost + cost
-#    print(f"£{total_cost: .2f}")
+for cost in costs:
+    total_cost = total_cost + cost
+    print(f"£{total_cost: .2f}")
 
-#print (f"Your total cost is £{total_cost: .2f}")
+print (f"Your total cost is £{total_cost: .2f}")
+
+#This seperates the outputs
+print()
 
 #Here is the code to print a 5x5 grid if *
-#for line in range(5):
-#    for colum in range(5):
-#        print("*", end=" ")
-#    print()
+for line in range(5):
+    for colum in range(5):
+        print("*", end=" ")
+    print()
+
+#This seperates the outputs
+print()
 
 #Here i have created code to print a 5x5 right-angle trange
-#layer = 1
-#for line in range(5):
-#    print("* " * layer )
-#    layer = layer + 1
-#print()
+layer = 1
+for line in range(5):
+    print("* " * layer )
+    layer = layer + 1
+print()
 
-#Exercise 4 - The While Loop
+#Task 4 - The While Loop
 #Creating a calculator, i am choosing to ourput to 2dp
 
 #here i have used a defned function to compute the mathmatics with reduced code
@@ -69,4 +78,4 @@ while True:
         subtraction(sub_num1_float, sub_num2_float)
         break
     else:
-        print ("\ntry again\n")
+        print ("\nTry again!\n")
