@@ -19,8 +19,15 @@ focusing on for loops, while loops, and GitHub intergration.
 
 #print (f"Your total cost is £{total_cost: .2f}")
 
+#Here is the code to print a 5x5 grid if *
+#for line in range(5):
+#    for colum in range(5):
+#        print("*", end=" ")
+#    print()
 
+#Here i have created code to print a 5x5 right-angle trange
+layer = 1
 for line in range(5):
-    for colum in range(5):
-        print("*", end=" ")
-    print()
+    print("* " * layer )
+    layer = layer + 1
+print()
