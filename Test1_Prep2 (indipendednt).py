@@ -49,8 +49,11 @@ if age_integr >= 30 and age_integr <= 39:
      print("You are in your 30s")
 
      
+#This creates a function to countfrom 1 to the users age
 def countdown(age):
      for countdown in range(1, age + 1):
         print(countdown)
 
+#This then calls on that function
 print(countdown(age_integr))
+
