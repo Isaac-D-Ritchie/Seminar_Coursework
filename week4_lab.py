@@ -10,29 +10,47 @@ def celsius_to_fahrenheit(celsius_temp):
 
 
 #Exercise 1 - create a number guessing game
+
 #This imports the random python module so i ca then call on it later.
-#import random
+import random
 
 #This sets the variable random_num into a random int between 1 and 101(exclusive).
-#random_num = random.randint(0, 101)
+random_num = random.randint(0, 101)
 
 #This loop asks the user to guess the number generated until they guess it.
-#while True:
-#    user_guess = input("Guess the number:")
-#    user_guess_integer = int(user_guess)
-#
-#    if user_guess_integer == random_num:
-#        print(f"Congratulations! You guessed it, {random_num} was the random number.")
-#        break
-#    elif user_guess_integer >= random_num:
-#        print("Too High! Try again.")
-#    elif user_guess_integer <= random_num:
-#        print("Too Low! Try again.")
+while True:
+    user_guess = input("Guess the number:")
+    user_guess_integer = int(user_guess)
 
-#Exercise 2
+    if user_guess_integer == random_num:
+        print(f"Congratulations! You guessed it, {random_num} was the random number.")
+        break
+    elif user_guess_integer >= random_num:
+        print("Too High! Try again.")
+    elif user_guess_integer <= random_num:
+        print("Too Low! Try again.")
 
+
+#Exercise 2 - Defining functions
+
+#This asks the user for the temp to then call the function using the user input
 c_temp = input("Enter a temperature in celsius:")
+#This converts the user input to a int so i can be used in equasion
 c_temp_integer = int(c_temp)
 f_temp = celsius_to_fahrenheit(c_temp_integer)
 
+#This prints the funtion return value
 print(f"{c_temp}C is equal to {f_temp}F")
+
+
+#Exercise 3 - Understanding scope
+
+global_variable = "I am global"
+
+def test_scope():
+    global_variable = "I am local"
+    print(global_variable)
+    return global_variable
+
+print(test_scope())
+
