@@ -1,7 +1,17 @@
-# WET Code Block - Hard to read!
-print("You are in a dark forest. You see two paths.")
-choice1 = input("Do you go 'left' or 'right'? ")
-if choice1 == 'left':
+"""
+In week 5 i will be showing that i can condense WET code into DRY code aswell as learn the functions of the built-in VS code debugger
+"""
+#Excercise 1
+# I have re-written the WET code so that is not DRY code by using functions.
+def start_scene():
+    print("You are in a dark forest. You see two paths.")
+    choice = input("Do you go 'left' or 'right'? ")
+    if choice == 'left':
+        left_path_scene()
+    elif choice == 'right':
+        right_path_scene()
+
+def left_path_scene():
     print("You walk down the left path and find a river.")
     choice2 = input("Do you 'swim' across or 'follow' the river bank? ")
     if choice2 == 'swim':
@@ -10,7 +20,8 @@ if choice1 == 'left':
         print("You follow the river bank and find a hidden cave. You win!")
     else:
         print("Invalid choice. You are lost.")
-elif choice1 == 'right':
+
+def right_path_scene():
     print("You walk down the right path and encounter a sleeping bear.")
     choice2 = input("Do you 'tiptoe' past or 'run' away? ")
     if choice2 == 'tiptoe':
@@ -19,5 +30,5 @@ elif choice1 == 'right':
         print("You trip while running and the bear wakes up. You lose.")
     else:
         print("Invalid choice. You are lost.")
-else:
-    print("Invalid choice. You are lost.")
+
+start_scene()
