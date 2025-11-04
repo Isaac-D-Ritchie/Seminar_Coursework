@@ -44,13 +44,17 @@ print(f"{c_temp}C is equal to {f_temp}F")
 
 
 #Exercise 3 - Understanding scope
+"""
+In this exercise, i defined a variable outside of the function to dementrate a glabal varible.
+I have then chnged that varaible in the function and printed the outcome and then the glabal variable with the same name which has not changed.
+This hapens becase a any variables used i in a ftion are destroyed after that function is closed unless stored seperately outside as global varible.
+"""
 
 global_variable = "I am global"
 
 def test_scope():
     global_variable = "I am local"
-    print(global_variable)
     return global_variable
 
 print(test_scope())
-
+print(global_variable)
