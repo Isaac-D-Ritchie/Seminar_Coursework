@@ -122,3 +122,27 @@ Flowchart
       |
     (End)
 """
+
+#Exercide 5
+#Testing functions
+
+"""
+Test plan for celcius_to_fehrenheit:
+1) Test freezing temp: 0C sHould be 32F.
+2) Test boiling point: 100C should be 212F.
+3) Test room tempreture 25C should be 77F.
+"""
+#This is the function i am testing
+def celsius_to_fahrenheit(celsius_temp):
+    #This converts the users input (degrees in celsius) and output the conversion to fehrenheit
+    fahrenheit_temp = (celsius_temp * 9/5) + 32
+    return(fahrenheit_temp)
+
+#'assert' runs a function with certain arguments and tests too see if they give the wanted answer
+print("Running tests...")
+
+assert celsius_to_fahrenheit(0) == 32
+assert celsius_to_fahrenheit(100) == 212
+assert celsius_to_fahrenheit(25) == 77
+
+print("All tests have passed successfully!")
