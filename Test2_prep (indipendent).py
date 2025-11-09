@@ -24,7 +24,7 @@
 
 """
 In this code i will be using functions to find the factors of a integer inputed by the user. 
-I will aslso use an assert statement to varify that the sum is greater or equal to the largest factor.
+I will also use an assert statement to varify that the sum is greater or equal to the largest factor.
 Finally, i will keep count of hoe many times the find factor function is called.
 """
 
@@ -36,9 +36,19 @@ def find_factors(n):
         else:
             continue
 
-#Cretes an empty list to add factors to
+def sum_factors(factors):
+    total = 0
+    length = 0
+    while length < len(factors):
+        total += factors[length]
+        length += 1
+    return total
+
+
+#Cretes an empty list to add factors to assign the vales to
 factors = []
 
-#Calles the function and prints the resulting list
+#Calls the function and prints the resulting list then adds the lust and prints the value
 find_factors(25)
-print(factors)
+print (factors)
+print (sum_factors(factors))
