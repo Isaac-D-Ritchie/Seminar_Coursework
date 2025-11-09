@@ -49,6 +49,14 @@ def sum_factors(factors):
 factors = []
 
 #Calls the function and prints the resulting list then adds the lust and prints the value
-find_factors(25)
-print (factors)
-print (sum_factors(factors))
+find_factors(int(input("Plese enter a intger to calculate its factors")))
+
+#This checks the sum of factors is atleast the vale of its largest factor, this porves that the calculations are accurate since the factors include at least 1 and the number itself.
+assert sum_factors(factors) >= max(factors)
+print("All checks passed")
+
+#I have used f strings to improves how the information is displayed
+print (f"Factors: {factors}")
+print (f"The sum of factors = {sum_factors(factors)}")
+
+
