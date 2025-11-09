@@ -27,3 +27,18 @@ In this code i will be using functions to find the factors of a integer inputed 
 I will aslso use an assert statement to varify that the sum is greater or equal to the largest factor.
 Finally, i will keep count of hoe many times the find factor function is called.
 """
+
+#Function checks what numbers between 1 and the 'n' even devide into using % and checking if the returned value is 0, then adding the value to a list 'factors'
+def find_factors(n):
+    for i in range(1, n+1):
+        if n % i == 0:
+            factors.append(i)
+        else:
+            continue
+
+#Cretes an empty list to add factors to
+factors = []
+
+#Calles the function and prints the resulting list
+find_factors(25)
+print(factors)
