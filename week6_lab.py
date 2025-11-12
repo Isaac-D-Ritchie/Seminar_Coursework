@@ -19,6 +19,7 @@ print(f"Player health is: {player_health}")
 
 
 #lab exercises:
+
 #Exercise 1 - String slicing and .split()
 log_data = "SCORE:Player_1:2500"
 
@@ -28,11 +29,11 @@ parced_data = log_data.split(":")
 print (f"Player name: {parced_data[1]}")
 print (f"Player score: {parced_data[2]}")
 
-#Exercise 2 - create a quiz using two lists
 
+#Exercise 2 - create a quiz using two lists
 #List of questions and answers saved as a variables.
 questions = ["What is 2+2?..","What is that captial of france?..","What keyword defines a function in python?.."]
-answers = ["4","paris","def"]
+answers = ["4","Paris","def"]
 #score variable
 score = 0
 
@@ -50,5 +51,22 @@ for q in range(len(questions)):
 #Prints the final score
 print(f"Score = {score}")
 
+
+#Exercise 3 - Dictionary phonebook program
+
+#Creating a ampty dictionary
+phonebook = {}
+#Adds contacts to phonebook dictionary
+phonebook["Alice"] = "555-1234"
+phonebook["Bob"] = "555-5678"
+phonebook["Charlie"] = "555-9999"
+
+#Asks user to search for a name in the phonebook and display the corespnding number
+name = input("Search Phonebook?..")
+print(phonebook[name])
+
+#Prints entire phonebook dictionary using .items()
+for name, number in phonebook.items():
+    print(f"name = {name} number = {number}")
 
 
