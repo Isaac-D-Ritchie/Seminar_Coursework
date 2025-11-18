@@ -39,7 +39,7 @@ def write_csv():
             writer.writerow([student] + grades)
     return
 #Calls function
-write_csv()
+#write_csv()
 
 #Function to read csv file and print the students name and average score
 def average_from_gades():
@@ -50,7 +50,30 @@ def average_from_gades():
             temp_grade_list = {int(c) for c in row[1:]} #creates temporary list of grades for each row
             average_grade = sum(temp_grade_list) / len(temp_grade_list) #calculates the average score from the list
             print(f"{row[0]}: Average grade = {average_grade:.1f}\n")
+    return
 #Calls function
-average_from_gades()
+#average_from_gades()
 
 
+#Exercise 3 - working with .jason
+import json
+
+inventory = [
+    {"id": 1, "item": "Potion", "cost": 50},
+    {"id": 2, "item": "Shield", "cost": 150}
+]
+#This unction saves a .jason file with the inventory list
+def save_inventory():
+    with open("week7_saved_inventory.json", "w") as f:
+        json.dump(inventory,f,indent=4) #This cretates the file with the inventory and keeps 4 spaces between each entry
+    return
+#Calls function
+save_inventory()
+
+def load_inventory():
+    with open("week7_saved_inventory.json", "r") as f:
+        loaded_inventory = json.load(f)
+        print(f"Inventory matches: {loaded_inventory == inventory}")
+    return
+
+load_inventory()
