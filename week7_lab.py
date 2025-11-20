@@ -75,5 +75,5 @@ def load_inventory():
         loaded_inventory = json.load(f)
         print(f"Inventory matches: {loaded_inventory == inventory}")
     return
-
+#Calls function
 load_inventory()
