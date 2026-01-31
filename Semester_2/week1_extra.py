@@ -31,5 +31,48 @@ Constraints:
     # Add a docstring explaining behavior and errors
 """
 
-def validate_price(Value: str) -> float:
+def validate_price(value: str) -> float:
+    """
+    Price validation fot input argument
+
+    Argument:
+        Value - String input from user
+
+    Returns:
+        Validated input - Float between 0 to 1000
+
+    Raises:
+        ValueError - For invalid argument input
+    """
+    striped_value = value.strip()
+    if not striped_value:
+        raise ValueError("Price is required")
     
+    if striped_value.count(".") > 1:
+        raise ValueError("Price must be a number")
+    
+    if striped_value.startswith("-"):
+        striped_value = striped_value[1:]
+    
+    number_check = striped_value.replace(".", "")
+    if not number_check.isdigit():
+        raise ValueError("Price must be a number")
+    
+    float_value = float(value)
+    if float_value <= 0:
+        raise ValueError("Price must be greater than 0")
+    elif float_value > 1000:
+        raise ValueError("Price must not exceed 1000")
+    else:
+        return float_value
+
+
+
+"""Example use of the function"""
+user_input = input("Please enter a price £")
+
+try:
+    price = validate_price(user_input)
+    print(f"Accepted price: £{price:.2f}")
+except ValueError as e:
+    print(f"Error: {e}")
