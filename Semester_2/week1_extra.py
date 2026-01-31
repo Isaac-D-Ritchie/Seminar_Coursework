@@ -42,7 +42,7 @@ def validate_price(value: str) -> float:
         Validated input - Float between 0 to 1000
 
     Raises:
-        ValueError - For invalid argument input
+        ValueError - For invalid argument inputs
     """
     striped_value: str = value.strip()
     if not striped_value:
