@@ -44,7 +44,7 @@ def validate_price(value: str) -> float:
     Raises:
         ValueError - For invalid argument input
     """
-    striped_value = value.strip()
+    striped_value: str = value.strip()
     if not striped_value:
         raise ValueError("Price is required")
     
@@ -52,9 +52,9 @@ def validate_price(value: str) -> float:
         raise ValueError("Price must be a number")
     
     if striped_value.startswith("-"):
-        striped_value = striped_value[1:]
+        striped_value: str = striped_value[1:]
     
-    number_check = striped_value.replace(".", "")
+    number_check: str = striped_value.replace(".", "")
     if not number_check.isdigit():
         raise ValueError("Price must be a number")
     
@@ -69,10 +69,10 @@ def validate_price(value: str) -> float:
 
 
 """Example use of the function"""
-user_input = input("Please enter a price £")
+user_input: str = input("Please enter a price £")
 
 try:
-    price = validate_price(user_input)
+    price: float = validate_price(user_input)
     print(f"Accepted price: £{price:.2f}")
 except ValueError as e:
     print(f"Error: {e}")
