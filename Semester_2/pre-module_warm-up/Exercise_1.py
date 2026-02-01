@@ -13,11 +13,19 @@ Change only one word inside the function.
 Do not add new variables or additional print statements
 """
 
-#Before
+#After - print statement replaced with return
 
-def double_number(value):
-    result = value * 2
-    print(result)
+def double_number(value: str) -> int:
+    """
+    Function that doubles input value
+
+    Argument:
+        value: number input
+    Returns
+        result: doubled numbers
+    """
+    result: int = value * 2
+    return(result)
  
 my_num = double_number(10)
 print(f"The number is {my_num}")
