@@ -16,9 +16,9 @@ Requirements:
 
 #Before
 
-def format_user(name, age):
+def format_user(name: str, age: int) -> str:
     return f"User {name} is {age} years old."
 
-input_name = "Isaac"
-input_age = 21
+input_name: str = "Isaac"
+input_age: int = 21
 print(format_user(input_name, input_age))
