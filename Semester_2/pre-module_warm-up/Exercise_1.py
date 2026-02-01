@@ -13,6 +13,16 @@ Change only one word inside the function.
 Do not add new variables or additional print statements
 """
 
+#Before
+"""
+    def double_number(value):
+        result = value * 2
+        print(result)
+ 
+    my_num = double_number(10)
+    print(f"The number is {my_num}")
+"""
+
 #After - print statement replaced with return
 
 def double_number(value: str) -> int:

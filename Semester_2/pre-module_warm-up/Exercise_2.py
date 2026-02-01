@@ -14,7 +14,13 @@ Requirements:
 # The function must declare that it returns a string.
 """
 
-#After - Added type hints throughout the script
+# Before
+"""
+    def format_user(name, age):
+        return f"User {name} is {age} years old."
+"""
+
+# After - Added type hints throughout the script
 
 def format_user(name: str, age: int) -> str:
     return f"User {name} is {age} years old."

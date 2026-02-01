@@ -12,6 +12,15 @@ Requirements:
 # Catch a ZeroDivisionError.
 """
 
+# Before
+"""
+    num1 = 10
+    num2 = 0
+ 
+    result = num1 / num2
+    print(f"Result is {result}")
+"""
+
 # After - Caught error with try/except
 # Extra: Changed code into a pure function, added type hints
 
