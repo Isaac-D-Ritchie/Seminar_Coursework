@@ -12,10 +12,19 @@ Requirements:
 # Catch a ZeroDivisionError.
 """
 
-#Before
+# After - Caught error with try/except
+# Extra: Changed code into a pure function, added type hints
 
-num1 = 10
-num2 = 0
+num1: int = 10
+num2: int = 0
  
-result = num1 / num2
-print(f"Result is {result}")
+def divide(num1: int, num2: int) -> float:
+    try:
+        result: float = num1 / num2
+        return(f"Result is {result}")
+    except ZeroDivisionError:
+        return("Cannot divide by 0")
+
+num1: int = 10
+num2: int = 0
+print(divide(num1, num2))
