@@ -22,7 +22,7 @@ Requirements:
 """
 
 # After - Caught error with try/except
-# Extra: Changed code into a pure function, added type hints
+# Extra - Changed code into a pure function, added type hints
 
 num1: int = 10
 num2: int = 0
