@@ -39,6 +39,7 @@ while True:
     try:
         age_input = input("Enter age: ")
         print(f"{validate_age(age_input)}\n")
+        break
 
     except ValueError as x:
         print(f"Error: {x}\n")
