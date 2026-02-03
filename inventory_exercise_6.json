@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Milk",
+        "price": 1.2,
+        "stock_level": 10
+    },
+    {
+        "name": "Monster Energy",
+        "price": 2.25,
+        "stock_level": 0
+    },
+    {
+        "name": "Beef Mince",
+        "price": 5,
+        "stock_level": 14
+    },
+    {
+        "name": "Chocolate Bar",
+        "price": 2.99,
+        "stock_level": 5
+    }
+]
