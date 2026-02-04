@@ -30,7 +30,7 @@ def calculate_vat():
 """
 
 #After - completed task as per requirements, with error catching
-#Extra - Added reuable function for getting positive float
+#Extra - Added reusable function for getting positive float
 
 
 #Function to get valid input as float
