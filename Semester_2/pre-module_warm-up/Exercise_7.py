@@ -1,5 +1,5 @@
 """
-Pre-module warm-up exercise 6
+Pre-module warm-up exercise 7
 
 Scenario:
 A function that calculates VAT is mixed with user input and printing.
@@ -16,7 +16,7 @@ Requirements:
 
 Add:
 # Type hints
-#A docstring explaining the function’s purpose
+# A docstring explaining the function’s purpose
 
 """
 
