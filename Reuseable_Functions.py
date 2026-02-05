@@ -35,8 +35,8 @@ def get_non_empty_string(prompt) -> str:
         Non-empty string
     """
     while True:
-        raw_input = safe_input(prompt)
-        sanitized_input = raw_input.strip()
+        raw_input: str = safe_input(prompt)
+        sanitized_input: str = raw_input.strip()
 
         if sanitized_input == "":
             print("\nError: Input cannot be empty")
