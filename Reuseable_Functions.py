@@ -6,7 +6,7 @@ Reuseable Functions:
 These functions are for input sanitation and validation
 
 """
-#============================================================================#
+#=====================================================================#
 
 #Get safe input
 def safe_input(prompt: str) -> str:
@@ -23,7 +23,7 @@ def safe_input(prompt: str) -> str:
         print("\nInput Error")
         return ""
 
-#============================================================================#
+#=====================================================================#
 
 #Get non-empty string
 def get_non_empty_string(prompt: str) -> str:
@@ -45,7 +45,7 @@ def get_non_empty_string(prompt: str) -> str:
         else:
             return sanitized_input
 
-#============================================================================#
+#=====================================================================#
 
 #Get valid integer with optional range
 def get_valid_integer(prompt: str, min_value: int = None,
@@ -75,15 +75,17 @@ def get_valid_integer(prompt: str, min_value: int = None,
             continue
 
         if min_value is not None and int_value < min_value:
-            print(f"\nError: Value must be between {min_value} and {max_value}")
+            print(f"\nError: Value must be between"
+                  f" {min_value} and {max_value}")
             continue
         if max_value is not None and int_value > max_value:
-            print(f"\nError: Value must be between {min_value} and {max_value}")
+            print(f"\nError: Value must be between"
+                  f" {min_value} and {max_value}")
             continue
 
         return int_value
         
-#============================================================================#
+#=====================================================================#
 
 
 
