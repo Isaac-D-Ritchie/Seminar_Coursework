@@ -18,7 +18,7 @@ def safe_input(prompt) -> str:
     try:
         return input(prompt)
     except (KeyboardInterrupt, EOFError):
-        print("Input Error")
+        print("\nInput Error")
         return ""
 
 
@@ -26,3 +26,5 @@ def safe_input(prompt) -> str:
 
 if __name__ == "__main__":
     print("Start Program")
+    prompt = "Input:"
+    print(safe_input(prompt))
