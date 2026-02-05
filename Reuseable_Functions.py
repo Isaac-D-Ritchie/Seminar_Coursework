@@ -25,7 +25,7 @@ def safe_input(prompt) -> str:
 
 
 
-# Get non-empty string
+#Get non-empty string
 def get_non_empty_string(prompt) -> str:
     while True:
         raw_input = safe_input(prompt)
@@ -39,6 +39,7 @@ def get_non_empty_string(prompt) -> str:
 
 
 
+#Execute if file is run directly
 if __name__ == "__main__":
     print("Start Program")
     prompt = "Input:"
