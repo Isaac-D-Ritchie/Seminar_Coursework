@@ -27,6 +27,13 @@ def safe_input(prompt) -> str:
 
 #Get non-empty string
 def get_non_empty_string(prompt) -> str:
+    """
+    Function to get non empty string using while loop
+    Arguments:
+        prompt - string for input prompt
+    Return:
+        Non-empty string
+    """
     while True:
         raw_input = safe_input(prompt)
         sanitized_input = raw_input.strip()
