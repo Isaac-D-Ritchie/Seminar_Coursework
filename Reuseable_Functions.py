@@ -87,11 +87,48 @@ def get_valid_integer(prompt: str, min_value: int = None,
         
 #=====================================================================#
 
+#Get float with optional range
+def get_valid_float(prompt, min_value: float = None,
+                     max_value: float = None) -> float:
+    """
+    Function to get a valid float value within a range if given
+    Utilizes safe_input function for input
+    Arguments:
+        prompt - string for float input prompt
+        min_value - minimum float value
+        max_value - maximum float value
+    Returns:
+        valid float
+    """
+    while True:
+        raw_input = safe_input(prompt)
+        sanitized_input = raw_input.strip()
 
+        if not sanitized_input:
+            print("\nError: Input cannot be empty")
+            continue
 
+        try:
+            float_value = float(raw_input)
+        except ValueError:
+            print("\nError: Invalid float value")
+            continue
 
-#Execute if file is run directly
+        if min_value is not None and float_value < min_value:
+            print(f"\nError: Value must be between"
+                  f" {min_value} and {max_value}")
+            continue
+        if max_value is not None and float_value > max_value:
+            print(f"\nError: Value must be between"
+                  f" {min_value} and {max_value}")
+            continue
+
+        return float_value
+
+#=====================================================================#
+
+#Execute code if file is run directly
 if __name__ == "__main__":
     print("Start Program")
     prompt = "Input:"
-    print(get_valid_integer(prompt, -99, 99))
+    print(get_valid_float(prompt, -5.5, 5.5))
