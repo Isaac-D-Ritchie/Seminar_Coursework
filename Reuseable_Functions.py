@@ -127,8 +127,39 @@ def get_valid_float(prompt, min_value: float = None,
 
 #=====================================================================#
 
+def get_choice(prompt, choices: list[str]) -> str:
+    lowercase_choices: list[str] = {c.lower(): c for c in choices}
+    """
+    Function to get choice form a list of strings by converting
+    the list keys and input into lowercase to compare
+    Arguments:
+        prompt - string for choice input prompt
+        choices - list of valid choices
+    Returns:
+        valid list item as a string
+    """
+    while True:
+        raw_input = safe_input(prompt)
+        sanitized_key = raw_input.strip().lower()
+
+        if not sanitized_key:
+            print("\nError: Input cannot be empty")
+            continue
+
+        if sanitized_key not in lowercase_choices:
+            options = " - ".join(choices)
+            print(f"Error: Please choose from: {options}")
+            continue
+
+        return lowercase_choices[sanitized_key]
+
+#=====================================================================#
+
 #Execute code if file is run directly
 if __name__ == "__main__":
     print("Start Program")
-    prompt = "Input:"
-    print(get_valid_float(prompt, -5.5, 5.5))
+    prompt = "Input from ID1, ID2: "
+    choice = (get_choice(prompt, ["ID1","ID2" ]))
+    print(choice)
+    list_dicts = {"ID1": {"Name": "Isaac"}, "ID2": {"Name": "Anna"}}
+    print(list_dicts[choice])
