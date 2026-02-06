@@ -158,8 +158,13 @@ def get_choice(prompt, choices: list[str]) -> str:
 #Execute code if file is run directly
 if __name__ == "__main__":
     print("Start Program")
-    prompt = "Input from ID1, ID2: "
-    choice = (get_choice(prompt, ["ID1","ID2" ]))
-    print(choice)
-    list_dicts = {"ID1": {"Name": "Isaac"}, "ID2": {"Name": "Anna"}}
-    print(list_dicts[choice])
+    username = get_non_empty_string("Enter username: ")
+    age = get_valid_integer("Enter age: ", 0, 125)
+    role = get_choice("Enter role (Student, Tutor, Admin)",
+                       ["Student", "Tutor", "Admin"])
+    
+    print("\n-- Personal Information --\n"
+          f"Username: {username}\n"
+          f"Age: {age}\n"
+          f"Role: {role}\n"
+          )
