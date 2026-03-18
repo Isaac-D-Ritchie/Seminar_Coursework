@@ -22,3 +22,16 @@ import tkinter as tk
 
 """ 1.1 First tkinter window """
 
+# Creates root window and names it
+root = tk.Tk()
+root.title("First TKinter window")
+
+# Sets window size and stops resizing
+root.geometry("400x300")
+root.resizable(False,False)
+
+# Sets background colour
+root.configure(bg="#f0f0f0")
+
+# Window loop
+root.mainloop()
