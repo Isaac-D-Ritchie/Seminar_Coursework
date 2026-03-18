@@ -3,6 +3,8 @@ Isaac Ritchie
 
 Week 8 - Graphical User Interfaces with Python tkinter
 
+exercises have been separated into function which can be called
+
 1.1 Your First tkinter Window
 1.2 Labels and Text Display
 1.3 Buttons and Event Handling
@@ -21,17 +23,33 @@ import tkinter as tk
 
 
 """ 1.1 First tkinter window """
+def first_tkinter_window():
+    # Creates root window and names it
+    root = tk.Tk()
+    root.title("First TKinter window")
 
-# Creates root window and names it
-root = tk.Tk()
-root.title("First TKinter window")
+    # Sets window size and stops resizing
+    root.geometry("400x300")
+    root.resizable(False,False)
 
-# Sets window size and stops resizing
-root.geometry("400x300")
-root.resizable(False,False)
+    # Sets background colour
+    root.configure(bg="#f0f0f0")
 
-# Sets background colour
-root.configure(bg="#f0f0f0")
+    # Window loop
+    root.mainloop()
 
-# Window loop
-root.mainloop()
+""" 1.2 Labels and Text Display """
+def labels_and_text():
+    root = tk.Tk()
+    root.title("Labels Tutorial")
+
+    #Window loop
+    root.mainloop()
+
+
+
+#Main loop
+def main():
+    labels_and_text()
+
+main()
