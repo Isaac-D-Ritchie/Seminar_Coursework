@@ -5,16 +5,16 @@ Week 8 - Graphical User Interfaces with Python tkinter
 
 exercises have been separated into function which can be called
 
-1.1 Your First tkinter Window
-1.2 Labels and Text Display
-1.3 Buttons and Event Handling
-1.4 Entry Widgets and User Input
-1.5 Layout Managers: pack, grid, place
-1.6 Checkbuttons, Radiobuttons and Variables
-1.7 Listbox and Scrollbar
-1.8 Menus and Message Boxes
-1.9 Frames and Organizing Your Interface
-1.10 Building a Complete Application: Student Record Manager
+1 Your First tkinter Window
+2 Labels and Text Display
+3 Buttons and Event Handling
+4 Entry Widgets and User Input
+5 Layout Managers: pack, grid, place
+6 Checkbuttons, Radiobuttons and Variables
+7 Listbox and Scrollbar
+8 Menus and Message Boxes
+9 Frames and Organizing Your Interface
+10 Building a Complete Application: Student Record Manager
 """
 
 
@@ -22,7 +22,7 @@ exercises have been separated into function which can be called
 import tkinter as tk
 
 
-""" 1.1 First tkinter window """
+""" 1 First tkinter window """
 def first_tkinter_window():
     # Creates root window and names it
     root = tk.Tk()
@@ -40,7 +40,7 @@ def first_tkinter_window():
 
 
 
-""" 1.2 Labels and Text Display """
+""" 2 Labels and Text Display """
 def labels_and_text():
     root = tk.Tk()
     root.title("Labels Tutorial")
@@ -80,7 +80,8 @@ def labels_and_text():
     root.mainloop()
 
 
-""" 1.3 Buttons and Event Handling """
+
+""" 3 Buttons and Event Handling """
 def btn_tutorial():
     #Functions for 1.3
     def on_greet():
@@ -147,14 +148,16 @@ def btn_tutorial():
     root.mainloop()
 
 
-""" 1.4 Entry Widgets and User Input """
 
+""" 4 Entry Widgets and User Input """
+def widget_tutorial():
+    pass
 
 
 
 """ Main program loop for calling task """
 #Main loop
 def main():
-    btn_tutorial()
+    widget_tutorial()
 
 main()
