@@ -24,18 +24,18 @@ import tkinter as tk
 
 """ 1 First tkinter window """
 def first_tkinter_window():
-    # Creates root window and names it
+    #Creates root window and names it
     root = tk.Tk()
     root.title("First TKinter window")
 
-    # Sets window size and stops resizing
+    #Sets window size and stops resizing
     root.geometry("400x300")
     root.resizable(False,False)
 
-    # Sets background colour
+    #Sets background colour
     root.configure(bg="#f0f0f0")
 
-    # Window loop
+    #Window loop
     root.mainloop()
 
 
@@ -349,10 +349,16 @@ def check_radio_buttons():
     root.mainloop()
 
 
+""" 7 Listbox and Scrollbar """
+def listbox_and_scrollbar():
+    
+    #Window
+    root = tk.Tk()
+
 
 
 """ Main program loop for calling task """
 def main():
-    check_radio_buttons()
+    listbox_and_scrollbar()
 
 main()
