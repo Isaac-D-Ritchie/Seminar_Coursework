@@ -198,7 +198,6 @@ def widget_tutorial():
     weight_entry = tk.Entry(root, font=("Arial", 12), width=20, justify="center", fg="#545050")
     weight_entry.insert(0, "e.g. 70")
     weight_entry.pack()
-    print(weight_entry)
     weight_entry.bind("<FocusIn>", clear_weight)
 
     #Height Input
@@ -210,7 +209,7 @@ def widget_tutorial():
 
     #Calculate button
     tk.Button(root, text="Calculate BMI", command=calculate_bmi, bg="#507b41", 
-              font=("Aial", 12, "bold")).pack(pady=15)
+              font=("Arial", 12, "bold")).pack(pady=15)
     
     #Result
     result = tk.StringVar()
@@ -643,7 +642,7 @@ def complete_application_tutorial():
             count = len(self.students)
             self.status_var.set(f"Student Added -- {count} student(s) total")
 
-        def remove_student():
+        def remove_student(self):
             selection = self.listbox.curselection()
             if not selection:
                 messagebox.showinfo("Info", "Please select a student to remove")
