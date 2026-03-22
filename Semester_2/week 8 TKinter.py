@@ -222,13 +222,83 @@ def widget_tutorial():
     #Mainloop
     root.mainloop()
 
-""" 5 Layout Managers: pack, grid, place """
+""" 5 Layout Managers """
 def layout_tutorial():
-    pass
+
+    #Pack window
+    place_root = tk.Tk()
+    place_root.title("pack() Demo")
+    place_root.geometry("400x300")
+
+    #Widgets stack vertically by default
+    tk.Label(place_root, text="Top", bg="lightblue", fg="#000000", width=30).pack(pady=10)
+    tk.Label(place_root, text="Middle", bg="lightgreen", fg="#000000", width=30).pack(pady=10)
+    tk.Label(place_root, text="Bottom", bg="yellow", fg="#000000" , width=30).pack(pady=10)
+
+    #Using side= to arrange horizontally
+    frame = tk.Frame(place_root)
+    frame.pack(pady=20)
+    tk.Button(frame, text="Left").pack(side=tk.LEFT, padx=5)
+    tk.Button(frame, text="Center").pack(side=tk.LEFT, padx=5)
+    tk.Button(frame, text="Right").pack(side=tk.LEFT, padx=5)
+
+    #Fill and expand options
+    tk.Label(place_root, text="Expanded", bg="salmon").pack(fill=tk.X, expand=True)
+
+    place_root.mainloop()
+
+
+    #Grid window
+    grid_root = tk.Tk()
+    grid_root.title(".grid() Demo -- Registration form")
+
+    #Configure column weights for responsive resizing
+    grid_root.columnconfigure(1, weight=1)
+
+    #Row 0 - Name
+    tk.Label(grid_root, text="Full Name:", font=("Arial", 11)).grid(
+        row=0, column=0, padx=10, pady=8, sticky="e")
+    tk.Entry(grid_root, font=("Arial", 11)).grid(
+        row=0, column=1, padx= 5, pady=8, sticky="ew")
+    
+    #Row 1 - Email
+    tk.Label(grid_root, text="Email:", font=("Arial", 11)).grid(
+        row=1, column=0, padx=10, pady=8, sticky="e")
+    tk.Entry(grid_root, font=("Arial", 11)).grid(
+        row=1, column=1, padx=5, pady=8, sticky="ew")
+    
+    #Row 2 - Password
+    tk.Label(grid_root, text="Password:", font=("Arial", 11)).grid(
+        row=2, column=0, padx=10, pady=8, sticky="e")
+    tk.Entry(grid_root, font=("Arial", 11)).grid(
+        row=2, column=1, padx=5, pady=8, sticky="ew")
+    
+    #Row 3 - Button spanning 2 columns
+    tk.Button(grid_root, text="Register", bg="#5B2C8E", font=("Arial", 11,"bold")).grid(
+        row=3, column=0, columnspan=2, pady=15)
+
+    grid_root.mainloop()
+
+
+    #Place window
+    place_root = tk.Tk()
+    place_root.title(".Place() Demo")
+    place_root.geometry("400x300")
+
+    #Absolute positioning with x, y
+    tk.Label(place_root, text=("Positioned at (50, 30)"), bg="lightblue").place(x=50, y=30)
+    tk.Label(place_root, text=("Positioned at (150, 100)"), bg="lightgreen").place(x=150, y=100)
+    
+    #Relative positioning
+    tk.Button(place_root, text="Centre").place(relx=0.5, rely=0.5, anchor="center")
+
+    place_root.mainloop()
+
 
 """ Main program loop for calling task """
 #Main loop
 def main():
-    widget_tutorial()
+    layout_tutorial()
+
 
 main()
