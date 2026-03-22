@@ -3,7 +3,7 @@ Isaac Ritchie
 
 Week 8 - Graphical User Interfaces with Python tkinter
 
-exercises have been separated into function which can be called
+Exercises have been separated into function which can be called with CLI
 
 1 Your First tkinter Window
 2 Labels and Text Display
@@ -519,13 +519,225 @@ def frames_tutorial():
     root.mainloop()
 
 
-""" 10 Building a Complete Application: Student Record Manager """
+""" 10 Building a Complete Application -- Student Record Manager """
 def complete_application_tutorial():
-    pass
+    from tkinter import messagebox #message box needs to be imported
+
+    class StudentManager: #Whole program wrapped in a class
+        """ A complete student record management application """
+
+        #Class setup
+        def __init__(self, root):
+            self.root = root
+            self.root.title("Student Record manager")
+            self.root.geometry("600x500")
+            self.root.configure(bg="#a3a3a3")
+            self.students = []
+
+            self.create_menu()
+            self.create_header()
+            self.create_form()
+            self.create_list_selection()
+            self.create_status_bar()
+
+        #Menu items
+        def create_menu(self):
+            menu_bar = tk.Menu(self.root)
+            self.root.config(menu=menu_bar)
+
+            file_menu = tk.Menu(menu_bar, tearoff=0)
+            menu_bar.add_cascade(label="File", menu=file_menu)
+            file_menu.add_command(label="Clear all", command=self.clear_all)
+            file_menu.add_separator()
+            file_menu.add_command(label="Exit", command=self.show_about)
+
+        #Header 
+        def create_header(self):
+            header = tk.Frame(self.root, bg="#5B2C8E", height=50)
+            header.pack(fill=tk.X)
+            header.pack_propagate(False)
+            tk.Label(header, text="Student Record Manager", font=("Arial", 16, "bold"),
+                     bg="#58436E", fg="white").pack(expand=True)
+
+        #Form
+        def create_form(self):
+            form = tk.LabelFrame(self.root, text="Add New Student", font=("Arial", 11, "bold"),
+                                 bg="#f5f5f5", padx=10, pady=10)
+            form.pack(fill=tk.X, padx=15, pady=10)
+
+            #Row 0 - Name
+            tk.Label(form, text="Name:", font=("Arial", 10), bg="#f5f5f5").grid(
+                row=0, column=0, pady=3, sticky="e")
+            self.name_entry = tk.Entry(form, font=("Arial", 10), width=20)
+            self.name_entry.grid(row=0, column=1, pady=3, padx=5)
+
+            #Row 0 - Student ID
+            tk.Label(form, text="Student ID:", font=("Arial", 10), bg="#f5f5f5").grid(
+                row=0, column=2, pady=3, sticky="e")
+            self.id_entry = tk.Entry(form, font=("Arial", 10), width=22)
+            self.id_entry.grid(row=0, column=3, pady=3, padx=5)
+
+            #Row 1 - Course
+            tk.Label(form, text="Course:", font=("Arial", 10), bg="#f5f5f5").grid(
+                row=1, column=0, pady=3, sticky="e")
+            self.course_entry = tk.Entry(form, font=("Arial", 10), width=20)
+            self.course_entry.grid(row=1, column=1, pady=3, padx=5)
+
+            #Row 1 - Grade
+            tk.Label(form, text="Grade:", font=("Arial", 10), bg="#f5f5f5").grid(
+                row=1, column=2, padx=3, sticky="e")
+            self.grade_var = tk.StringVar(value="B")
+            grades = ["A", "B", "C", "D", "F"]
+            grade_frame = tk.Frame(form, bg="#f5f5f5")
+            grade_frame.grid(row=1, column=3, pady=3, padx=5)
+            for g in grades:
+                tk.Radiobutton(grade_frame, text=g, variable=self.grade_var, value=g, font=("Arial", 9)).pack(
+                    side=tk.LEFT)
+                
+            #Buttons
+            btn_frame = tk.Frame(form, bg="#f5f5f5")
+            btn_frame.grid(row=2, column=0, columnspan=4, padx=8)
+            tk.Button(btn_frame, text="Add Student", command=self.add_student,font=("Arial", 10, "bold"),
+                      width=12).pack(side=tk.LEFT, padx=5)
+            tk.Button(btn_frame, text="Remove Selected", command=self.remove_student, width=14,
+                      font=("Arial", 10, "bold")).pack(side=tk.LEFT, padx=5)
+
+        def create_list_selection(self):
+            list_frame = tk.LabelFrame(self.root, text="Student Records", font=("Arial", 11, "bold"),
+                                       bg="#f5f5f5", padx=10, pady=10)
+            list_frame.pack(fill=tk.BOTH, expand=True, padx=15, pady=(0, 10))
+
+            scrollbar = tk.Scrollbar(list_frame)
+            scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+            self.listbox = tk.Listbox(list_frame, font=("Courier", 10), selectmode=tk.SINGLE,
+                                      yscrollcommand=scrollbar.set)
+            self.listbox.pack(fill=tk.BOTH, expand=True)
+            scrollbar.config()
+
+        def create_status_bar(self):
+            self.status_var = tk.StringVar(value="Ready -- 0 students")
+            tk.Label(self.root, textvariable=self.status_var, relief="sunken", anchor="w",
+                     font=("Arial", 9), bg="#e0e0e0").pack(fill=tk.X)
+
+        def add_student(self):
+            name = self.name_entry.get().strip()
+            sid = self.id_entry.get().strip()
+            course = self.course_entry.get().strip()
+            grade = self.grade_var.get()
+
+            if not name or not sid or not course:
+                messagebox.showwarning("Missing Data", "Please fill in all fields")
+                return
+            
+            record = f"{sid:<22} {name:<20} {grade}"
+            self.students.append(record)
+            self.listbox.insert(tk.END, record)
+
+            #Clear form
+            self.name_entry.delete(0, tk.END)
+            self.id_entry.delete(0, tk.END)
+            self.course_entry.delete(0, tk.END)
+            self.name_entry.focus()
+
+            count = len(self.students)
+            self.status_var.set(f"Student Added -- {count} student(s) total")
+
+        def remove_student():
+            selection = self.listbox.curselection()
+            if not selection:
+                messagebox.showinfo("Info", "Please select a student to remove")
+                return
+            if messagebox.askyesno("Confirm", "Remove selected student?"):
+                idx = selection[0]
+                self.listbox.delete(idx)
+                self.students.pop(idx)
+                count = len(self.students)
+                self.status_var.set(f"Student removed -- {count} student(s) total")
+
+        def clear_all():
+            if messagebox.askyesno("Clear All", "Remove all student records?"):
+                self.listbox.delete(0, tk.END)
+                self.students.clear()
+                self.status_var.set(f"All records cleared -- 0 students")
+
+        def show_about():
+            messagebox.showinfo("About", "Student Record Manager\nCIS1703 -- Programming 2\nVersion 1.0")
+
+    #Main
+    if __name__ == "__main__":
+        root = tk.Tk()
+        app = StudentManager(root)
+        root.mainloop()
 
 
-""" Main program loop for calling task """
+""" Main program loop for calling task"""
 def main():
-    frames_tutorial()
+    try:
+        while True:
+            print("\n--- Tutorial selection menu ---")
+            print(" 1 - Your First tkinter Window")
+            print(" 2 - Labels and Text Display")
+            print(" 3 Buttons and Event Handling")
+            print(" 4 Entry Widgets and User Input")
+            print(" 5 Layout Managers: pack, grid, place")
+            print(" 6 Checkbuttons, Radiobuttons and Variables")
+            print(" 7 Listbox and Scrollbar")
+            print(" 8 Menus and Message Boxes")
+            print(" 9 Frames and Organizing Your Interface")
+            print(" 10 Student record application")
+            choice = int(input("Please choose (1-10): ").strip())
+
+            if choice <1 or choice >10:
+                raise ValueError
+            
+            if choice == 1:
+                print("\nProgram called")
+                first_tkinter_window()
+                print("Program ended")
+            elif choice == 2:
+                print("\nProgram called")
+                labels_and_text()
+                print("Program ended")
+            elif choice == 3:
+                print("\nProgram called")
+                btn_tutorial()
+                print("Program ended")
+            elif choice == 4:
+                print("\nProgram called")
+                widget_tutorial()
+                print("Program ended")
+            elif choice == 5:
+                print("\nProgram called")
+                layout_tutorial()
+                print("Program ended")
+            elif choice == 6:
+                print("\nProgram called")
+                check_radio_buttons()
+                print("Program ended")
+            elif choice == 7:
+                print("\nProgram called")
+                listbox_and_scrollbar()
+                print("Program ended")
+            elif choice == 8:
+                print("\nProgram called")
+                menus_and_messege_boxes()
+                print("Program ended")
+            elif choice == 9:
+                print("\nProgram called")
+                frames_tutorial()
+                print("Program ended")
+            elif choice == 10:
+                print("\nProgram called")
+                complete_application_tutorial()
+                print("Program ended")
+            else:
+                raise ValueError
+    
+    except ValueError:
+        print("Error occurred, program closed")
+
+
+    complete_application_tutorial()
 
 main()
