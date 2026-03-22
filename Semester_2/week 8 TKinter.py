@@ -149,11 +149,82 @@ def btn_tutorial():
 
 
 
-""" 4 Entry Widgets and User Input """
+""" 4 Entry Widgets and User Input (Calculate BMI)"""
 def widget_tutorial():
+
+    #BMI function
+    def calculate_bmi():
+        """ Calculate BMI from input """
+        try:
+            #get inputs
+            weight = float(weight_entry.get())
+            height = float(height_entry.get())
+            if height <= 0 or weight <= 0:
+                raise ValueError
+            bmi = weight / (height ** 2)
+            result.set(f"Your BMI is {bmi:.1f}")
+
+            #Change colour based on BMI
+            if bmi < 18.5:
+                result_label.configure(fg="blue")
+            elif bmi < 25:
+                result_label.configure(fg="green")
+            elif bmi < 30:
+                result_label.configure(fg="orange")
+            else:
+                result_label.configure(fg="red")
+
+        except ValueError:
+            result.set("Invalid input, please try again")
+            result_label.configure(fg="red")
+
+    #handles placeholder text
+    def clear_weight():
+        if weight_entry.get() == "e.g. 70":
+            weight_entry.delete(0, tk.END)
+    
+    def clear_height():
+        if height_entry.get() == "e.g. 1.25":
+            height_entry.delete(0, tk.END)
+
+
+    #Window
+    root = tk.Tk()
+    root.title("BMI Calculator")
+    root.geometry("350x250")
+    root.resizable(False,False)
+    root.configure(bg="#84cb6c")
+
+    #Weight Input
+    tk.Label(root, text="Weight (KG)", font=("Arial", 11), bg="#000000").pack(pady=(15, 2))
+    weight_entry = tk.Entry(root, font=("Arial", 12), width=20, justify="center", fg="#545050")
+    weight_entry.insert(0, "e.g. 70")
+    weight_entry.pack()
+    print(weight_entry)
+    weight_entry.bind("<FocusIn>", clear_weight)
+
+    #Height Input
+    tk.Label(root, text="Height (m)", font=("Arial", 11), bg="#000000").pack(pady=(25, 2))
+    height_entry = tk.Entry(root, font=("Arial", 12), width=20, justify="center", fg="#545050")
+    height_entry.insert(0, "e.g. 1.25")
+    height_entry.pack()
+    height_entry.bind("<FocusIn>", clear_height)
+
+    #Calculate button
+    tk.Button(root, text="Calculate BMI", command=calculate_bmi, bg="#507b41", 
+              font=("Aial", 12, "bold")).pack(pady=15)
+    
+    #Result
+    result = tk.StringVar()
+    result_label = tk.Label(root, textvariable=result, font=("Arial", 13), bg="#424141")
+    result_label.pack()
+
+    #Mainloop
+    root.mainloop()
+
+""" 5 Layout Managers: pack, grid, place """
+def layout_tutorial():
     pass
-
-
 
 """ Main program loop for calling task """
 #Main loop
