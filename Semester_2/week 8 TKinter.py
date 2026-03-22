@@ -422,9 +422,62 @@ def listbox_and_scrollbar():
 
     root.mainloop()
 
+""" 8 Menus and Message Boxes """
+def menus_and_messege_boxes():
+    from tkinter import messagebox #message box needs to be imported
+
+    #Functions
+    def new_file():
+        text_area.delete("1.0", tk.END)
+        root.title("UNTITLED - Simple Editor")
+
+    def about():
+        messagebox.showinfo("About", "Simple Text Editor\nCIS1703 Tutorial\nVersion 1.0")
+
+    def quit_app():
+        if messagebox.askyesno("Quit", "Are you sure you want to quit?"):
+            root.destroy()
+
+    def show_warning():
+        messagebox.showwarning("Warning", "This action cannot be undone!")
+
+    def show_error():
+        messagebox.showerror("Error", "Something went wrong!")
+
+    #Window
+    root = tk.Tk()
+    root.title("Simple Text Editor")
+    root.geometry("500x400")
+
+    #Create menu bar
+    menu_bar = tk.Menu(root)
+    root.config(menu=menu_bar)
+
+    #File menu
+    file_menu = tk.Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label="File", menu=file_menu)
+    file_menu.add_command(label="New", command=new_file)
+    file_menu.add_separator()
+    file_menu.add_command(label="Exit", command=quit_app)
+
+    #Help menu
+    help_menu = tk.Menu(menu_bar, tearoff=0)
+    menu_bar.add_cascade(label="Help", menu=help_menu)
+    help_menu.add_command(label="About", command=about)
+    help_menu.add_command(label="Test Warning", command=show_warning)
+    help_menu.add_command(label="Test Error", command=show_error)
+
+    #Text area
+    text_area = tk.Text(root, font=("Arial", 12), wrap="word")
+    text_area.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+
+    root.mainloop()
+
+
+
 
 """ Main program loop for calling task """
 def main():
-    listbox_and_scrollbar()
+    menus_and_messege_boxes()
 
 main()
