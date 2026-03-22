@@ -80,7 +80,6 @@ def labels_and_text():
     root.mainloop()
 
 
-
 """ 3 Buttons and Event Handling """
 def btn_tutorial():
     #Functions for 1.3
@@ -146,7 +145,6 @@ def btn_tutorial():
 
     #Mainloop
     root.mainloop()
-
 
 
 """ 4 Entry Widgets and User Input (Calculate BMI)"""
@@ -222,6 +220,7 @@ def widget_tutorial():
     #Mainloop
     root.mainloop()
 
+
 """ 5 Layout Managers """
 def layout_tutorial():
 
@@ -293,6 +292,7 @@ def layout_tutorial():
     tk.Button(place_root, text="Centre").place(relx=0.5, rely=0.5, anchor="center")
 
     place_root.mainloop()
+
 
 """ 6 Checkbuttons, Radiobuttons and Variables """
 def check_radio_buttons():
@@ -419,6 +419,7 @@ def listbox_and_scrollbar():
 
     root.mainloop()
 
+
 """ 8 Menus and Message Boxes """
 def menus_and_messege_boxes():
     from tkinter import messagebox #message box needs to be imported
@@ -470,6 +471,7 @@ def menus_and_messege_boxes():
 
     root.mainloop()
 
+
 """ 9 Frames and Organizing Your Interface """
 def frames_tutorial():
 
@@ -515,6 +517,12 @@ def frames_tutorial():
         fill=tk.X, padx=5)
 
     root.mainloop()
+
+
+""" 10 Building a Complete Application: Student Record Manager """
+def complete_application_tutorial():
+    pass
+
 
 """ Main program loop for calling task """
 def main():
