@@ -737,7 +737,5 @@ def main():
     except ValueError:
         print("Error occurred, program closed")
 
-
-    complete_application_tutorial()
-
-main()
+if __name__ == "__main__":
+    main()
