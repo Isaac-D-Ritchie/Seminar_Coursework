@@ -294,11 +294,65 @@ def layout_tutorial():
 
     place_root.mainloop()
 
+""" 6 Checkbuttons, Radiobuttons and Variables """
+def check_radio_buttons():
+    
+    #Selection function
+    def show_selection():
+        selected = []
+        if python_var.get(): 
+            selected.append("Python")
+        if java_var.get(): 
+            selected.append("Java")
+        if js_var.get(): 
+            selected.append("JavaScript")
+        if csharp_var.get(): 
+            selected.append("C#")
+
+        if selected:
+            result_var.set("Selected: " + ", ".join(selected))
+        else:
+            result_var.set("No languages selected")
+
+    #Window
+    root = tk.Tk()
+    root.title("Checkbuttons and Radiobuttons")
+    root.geometry("400x420")
+
+    #Checkbuttons
+    tk.Label(root, text="Which languages do you know?", font=("Arial", 12, "bold")).pack(pady=(15,5))
+    python_var = tk.BooleanVar()
+    java_var = tk.BooleanVar()
+    js_var = tk.BooleanVar()
+    csharp_var = tk.BooleanVar()
+
+    tk.Checkbutton(root, text="Python", variable=python_var, font=("Arial", 11)).pack(anchor="w", padx=40)
+    tk.Checkbutton(root, text="Java", variable=java_var, font=("Arial", 11)).pack(anchor="w", padx=40)
+    tk.Checkbutton(root, text="JavaScript", variable=js_var, font=("Arial", 11)).pack(anchor="w", padx=40)
+    tk.Checkbutton(root, text="C#", variable=csharp_var, font=("Arial", 11)).pack(anchor="w", padx=40)
+
+    tk.Button(root, text="Show Selection", command=show_selection, bg="#5B2C8E").pack(pady=10)
+    result_var = tk.StringVar()
+    tk.Label(root, textvariable=result_var, font=("Arial", 11), fg="#5B2C8E", wraplength=350).pack(pady=5)
+
+
+    #Radiobuttons
+    tk.Label(root, text="\npreferred label", font=("Arial", 12)).pack(pady=(10,5))
+
+    difficulty_var = tk.StringVar(value="medium")
+
+    for text, value in [("Easy","easy"),("Medium","medium"),("Hard","hard")]:
+        tk.Radiobutton(root, text=text, variable=difficulty_var, value=value, font=("Arial", 11)).pack(anchor="w", pady=10)
+
+
+
+    root.mainloop()
+
+
+
 
 """ Main program loop for calling task """
-#Main loop
 def main():
-    layout_tutorial()
-
+    check_radio_buttons()
 
 main()
