@@ -381,7 +381,6 @@ def listbox_and_scrollbar():
     #Input frame
     input_frame = tk.Frame(root)
     input_frame.pack(pady=10, padx=10, fill=tk.X)
-    
 
     entry = tk.Entry(input_frame, font=("Arial", 11))
     entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0,5))
