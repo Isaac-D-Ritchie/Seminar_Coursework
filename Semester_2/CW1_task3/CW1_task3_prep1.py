@@ -66,6 +66,8 @@ def task_complete():
 def remove_task():
     selection = listbox.curselection()
     if selection:
+        if not messagebox.askyesno("Confirm", "Delete this task?"):
+            return
         task = listbox.get(selection[0])
         listbox.delete(selection[0])
         status_var.set(f"Successfully deleted '{task}'")
@@ -145,12 +147,19 @@ root.mainloop()
 """ Application summery and heuristic table """
 #Heuristics
 """
-1 - Application status bar keeping the user informed about the program.
-2 - Buttons and widgets are clearly labeled, organized and coloured for the user.
-3 - The user is prompted to confirm weather to quitting the application and can cancel.
-4 - The program handles errors and informs the user about them in the status bar.
+1 - Heuristic: Visibility of the system - Always keeps the user informed
+    Application status telling the user info about the program and actions.
+
+2 - Heuristic: constancy - each button is centred and has a padx of 5 and the same font.
+    Buttons and widgets are clearly labeled, organized and coloured for the user.
+
+3 - Heuristic: User control and freedom - Done through messagebox commands.
+    The user is prompted to confirm weather to delete a task or quit the application.
+
+4 - Heuristic: Help recognize errors - This is done by text and visually through colour.
+    The program handles errors and informs the user about them in the status bar.
 """
-#How mt design addresses HCL
+#How my design addresses HCL
 """
 My to-do list application address HCl by having a clear window title, adapting to the user 
 resizing by keeping buttons centred and allowing for frame stretching.
