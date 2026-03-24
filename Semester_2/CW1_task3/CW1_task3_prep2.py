@@ -91,7 +91,6 @@ def to_do_list():
     entry_frame.pack(pady=5)
 
     tk.Label(entry_frame, text="Task Entry:", font=("Arial", 10)).pack(side=tk.LEFT)
-    entry = tk.StringVar()
     entry= tk.Entry(entry_frame, width=20, relief="solid")
     entry.pack(padx=5, side=tk.LEFT)
     entry.bind("<Return>", lambda e: add_task())
